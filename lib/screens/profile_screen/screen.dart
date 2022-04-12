@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:user_test_app/data/models/user_model.dart';
 import 'package:user_test_app/source/images.dart';
 import 'package:user_test_app/style/app_text_styles.dart';
 
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+  const ProfileScreen({Key? key,
+    required this.user,
+  }) : super(key: key);
+  final UserModel user;
 
   @override
   _ProfileScreenState createState() => _ProfileScreenState();
@@ -63,10 +67,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     padding: const EdgeInsets.all(12.0),
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Text(
-                            'Bill',
-                            style: AppTextStyle.textStyle22w500,
+                        children:  [
+                          Expanded(
+                            child: Text(
+                              widget.user.name.firstName,
+                              style: AppTextStyle.textStyle22w500,
+                            ),
                           ),
                           SizedBox(
                             height: 5,

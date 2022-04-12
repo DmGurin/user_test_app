@@ -19,7 +19,8 @@ class UsersBloc extends Bloc<UsersEvent, UsersState> {
       ) async {
     emit(LoadingUsersState());
     try {
-      usersList = await repository.getUserModel();
+      final response = await repository.getUserModel();
+      usersList = response;
     } catch (ex) {
       emit(ErrorUsersState(error: ex.toString()));
     }
