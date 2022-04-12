@@ -52,14 +52,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   Container(
                     height: MediaQuery.of(context).size.width * 1.3,
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.only(
+                    decoration:  BoxDecoration(
+                      borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(15),
                         topRight: Radius.circular(15),
                       ),
                       image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: AssetImage(AppImages.man),
+                        image: NetworkImage(widget.user.picture.medium),
                       ),
                     ),
                   ),
@@ -74,18 +74,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               style: AppTextStyle.textStyle22w500,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           Text(
-                            'Jonson',
+                            widget.user.name.lastName,
                             style: AppTextStyle.textStyle22w500,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           Text(
-                            'Italy, Roma',
+                            widget.user.location.city,
                             style: AppTextStyle.textStyle14w500,
                           ),
                         ]),

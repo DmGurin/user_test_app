@@ -22,9 +22,9 @@ class AuthorizationScreen extends StatelessWidget {
           children: [
             SizedBox(
               height: MediaQuery.of(context).size.width / 1.5,
-              child: SvgPicture.asset(
-                AppSvg.flutterLogo,
-                height: 150,
+              child: const FlutterLogo(
+                duration: Duration(seconds: 1),
+                size: 150,
               ),
             ),
             Container(
@@ -60,20 +60,23 @@ class AuthorizationScreen extends StatelessWidget {
                         children: [
                           SizedBox(
                             width: 300,
-                            child: TextField(
-                              style: const TextStyle(
-                                color: Colors.black,
-                              ),
-                              controller: vm.controller,
-                              decoration: InputDecoration(
-                                filled: true,
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(12),
-                                  borderSide: BorderSide.none,
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: TextField(
+                                style: const TextStyle(
+                                  color: Colors.black,
                                 ),
-                                hintText: 'Login',
+                                controller: vm.controller,
+                                decoration: InputDecoration(
+                                  filled: false,
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(12),
+                                    borderSide: BorderSide.none,
+                                  ),
+                                  hintText: 'Enter your Login',
+                                ),
+                                onChanged: (text) {},
                               ),
-                              onChanged: (text) {},
                             ),
                           ),
                           const Spacer(),
@@ -84,7 +87,7 @@ class AuthorizationScreen extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => UsersScreen(),
+                                    builder: (context) => const UsersScreen(),
                                   ),
                                 );
                               }
