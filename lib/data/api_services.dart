@@ -8,8 +8,7 @@ class ApiServices{
 
    Future<List<UserModel>> getUsers() async {
       List<UserModel> results = [];
-      final host = Uri.parse('https://randomuser.me/').host;
-      final uri = Uri.https(host, 'api/');
+      final uri = Uri.parse('https://randomuser.me/api/?page=0&results=20');
       final response = await http.get(uri);
       final stringJson = utf8.decode(response.bodyBytes);
       try {
