@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:user_test_app/data/models/user_model.dart';
 import 'package:user_test_app/source/images.dart';
+import 'package:user_test_app/style/app_colors.dart';
 import 'package:user_test_app/style/app_text_styles.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -20,38 +22,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.lightBlue,
-          title: const Text('Profile'),
+          title:  Text('Profile of ${widget.user.name.firstName}'),
         ),
+        backgroundColor: AppColors.darkWhite,
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
             child: Container(
-              height: MediaQuery.of(context).size.width * 1.6,
-              width: MediaQuery.of(context).size.width - 50,
-              decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(
+              //height: MediaQuery.of(context).size.width * 1.35,
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                color: AppColors.white,
+                  borderRadius: BorderRadius.all(
                     Radius.circular(15),
                   ),
-                  border: Border.all(color: Colors.black54, width: 0.2),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black45,
-                      blurRadius: 2,
-                      spreadRadius: 2,
-                      offset: Offset(0, 3),
-                    ),
-                    BoxShadow(
-                      color: Colors.white,
-                      blurRadius: 0,
-                      spreadRadius: 0,
-                      offset: Offset(0, 0),
-                    ),
-                  ]),
+                  ),
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    height: MediaQuery.of(context).size.width * 1.3,
+                    height: MediaQuery.of(context).size.width / 1.1,
                     decoration:  BoxDecoration(
                       borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(15),
@@ -59,35 +50,49 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: NetworkImage(widget.user.picture.medium),
+                        image: NetworkImage(widget.user.picture.large),
                       ),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: Column(
+                      mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children:  [
-                          Expanded(
-                            child: Text(
-                              widget.user.name.firstName,
-                              style: AppTextStyle.textStyle22w500,
-                            ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            widget.user.name.firstName,
+                            style: AppTextStyle.textStyle22w500.copyWith(color: AppColors.darkGray),
                           ),
                           const SizedBox(
                             height: 5,
                           ),
                           Text(
                             widget.user.name.lastName,
-                            style: AppTextStyle.textStyle22w500,
+                            style: AppTextStyle.textStyle22w500.copyWith(color: AppColors.darkGray),
                           ),
                           const SizedBox(
                             height: 5,
                           ),
-                          Text(
-                            widget.user.location.city,
-                            style: AppTextStyle.textStyle14w500,
+                          Text('City: ${widget.user.location.city}',
+                            style: AppTextStyle.textStyle18w500.copyWith(color: AppColors.gray),
                           ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          Text('Str. ${widget.user.location.street.nameStreet}, ',
+                            style: AppTextStyle.textStyle14w500.copyWith(color: AppColors.gray),
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          Text('Hse.  ${widget.user.location.street.number.toString()}',
+                            style: AppTextStyle.textStyle14w500.copyWith(color: AppColors.gray),
+                          ),
+
                         ]),
                   ),
                 ],
