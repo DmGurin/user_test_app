@@ -1,10 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:user_test_app/bloc/user_event.dart';
 import 'package:user_test_app/bloc/user_state.dart';
 import 'package:user_test_app/data/models/user_model.dart';
 import 'package:user_test_app/repo/repository.dart';
-import 'package:user_test_app/screens/users_screen/widgets/users_list_item.dart';
 
 
 class UsersBloc extends Bloc<UsersEvent, UsersState> {
@@ -30,11 +28,7 @@ class UsersBloc extends Bloc<UsersEvent, UsersState> {
     }
     emit(DataUsersState(users: usersList)
     );
-    // final List<UserModel> foundUsers = [];
-    // if (foundUsers.isEmpty){
-    //   return emit(DataUsersState(users: usersList)
-    //);
-  //  }
+
 
   }
   void _onSearchUsersEvent(

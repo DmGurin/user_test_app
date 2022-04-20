@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:user_test_app/data/models/user_model.dart';
-import 'package:user_test_app/source/images.dart';
 import 'package:user_test_app/style/app_colors.dart';
 import 'package:user_test_app/style/app_text_styles.dart';
 

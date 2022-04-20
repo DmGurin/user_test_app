@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:user_test_app/screens/authorization_screen/auth_view_model.dart';
 import 'package:user_test_app/screens/users_screen/screen.dart';
-import 'package:user_test_app/source/svg.dart';
 import 'package:provider/provider.dart';
 
 class AuthorizationScreen extends StatelessWidget {
