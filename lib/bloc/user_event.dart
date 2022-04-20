@@ -14,3 +14,7 @@ class SearchUsersEvent extends UsersEvent{
   SearchUsersEvent({required this.name});
 final String name;
 }
+
+class ReturnUsersEvent extends UsersEvent{
+
+}

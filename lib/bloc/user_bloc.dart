@@ -13,6 +13,7 @@ class UsersBloc extends Bloc<UsersEvent, UsersState> {
   UsersBloc() : super(InitialUsersState()) {
     on<InitialUsersEvent>(_onInitialUsersEvent);
     on<SearchUsersEvent>(_onSearchUsersEvent);
+    on<ReturnUsersEvent>(_onReturnUsersEvent);
   }
 
   void _onInitialUsersEvent(
@@ -37,8 +38,6 @@ class UsersBloc extends Bloc<UsersEvent, UsersState> {
       ) async {
     emit(DataUsersState(users: usersList));
     try {
-      final List<UserModel> foundUsers = usersSearch;
-      final List<UserModel> users;
       if (event.name.isEmpty) {
         usersSearch = usersList;
       } else {
@@ -58,5 +57,11 @@ class UsersBloc extends Bloc<UsersEvent, UsersState> {
     }
           emit(DataUsersState(users: usersSearch));
   }
+  void _onReturnUsersEvent(
+      ReturnUsersEvent event,
+      Emitter<UsersState> emit,
+      ) async{
+    emit(DataUsersState(users: usersList));
 
+  }
 }
